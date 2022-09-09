@@ -3,7 +3,7 @@ genSample = TRUE # if FALSE, READ samples
 genStats  = TRUE # if FALSE, READ stats
 
 nMC   = 1e4
-nBoot = 1e3
+nBoot = 5e3
 
 gPars    = ErrViewLib::setgPars("publish")
 cols     = rep(gPars$cols,2)

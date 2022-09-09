@@ -5,6 +5,17 @@ genStats  = TRUE # if FALSE, READ stats
 nMC   = 1e4
 nBoot = 5e3
 
+## Packages ####
+## CRAN
+library(moments)
+library(gsl)
+library(bootstrap)
+library(normalp)
+library(knitr)
+## GitHub
+# devtools::install_github("ppernot/ErrViewLib")
+library(ErrViewLib)
+
 gPars    = ErrViewLib::setgPars("publish")
 cols     = rep(gPars$cols,2)
 cols_tr  = rep(gPars$cols_tr,2)

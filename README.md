@@ -1,3 +1,7 @@
+
+[![DOI](https://zenodo.org/badge/534542173.svg)](https://zenodo.org/badge/latestdoi/534542173)
+
+
 # 2022_SampleMean
 
 R script to reproduce the figures and tables of 

@@ -318,6 +318,7 @@ par(mfrow = c(1,2),
 
 names(cols) = mtab
 names(cols_tr2) = mtab
+names(ltyp) = mtab
 fun = "Norm"
 for(num in c(4,40)) {
   resu = get(paste0('resu',num))
@@ -330,27 +331,28 @@ for(num in c(4,40)) {
       plot(
         density(X),
         col = cols[meth],
-        # lwd = 2,
+        lty = ltyp[meth],
         pch = NA,
-        main = '', #paste0('N = ',N,', Dist = ',fun),
+        main = '',
         xlab = 'Uncert. on mean',
         xlim = if(num == 4) c(0.0,1.5) else c(0.1,0.22),
         ylim = c(0,ymax),
         xaxs = 'i',
         yaxs = 'i'
       )
+      grid(lwd=2)
       first = FALSE
     } else {
-      lines(density(X),col = cols[meth])
+      lines(density(X), lty = ltyp[meth], col = cols[meth])
     }
   }
-  abline(v=1/sqrt(num), lty = 2, col = cols[1])
-  grid(lwd=2)
+  ct = length(mtab)+1
+  abline(v=1/sqrt(num), lty = 2, col = cols[ct])
   legend('topright', bty='n', cex=0.75,
          title = paste0('N = ',num),
          legend = c(mtab,'Truth'),
-         col = c(cols,1),
-         lty = c(rep(1,length(mtab)),2),
+         col = cols[1:ct],
+         lty = ltyp[1:ct],
          lwd = 2*gPars$lwd)
   box()
 }
